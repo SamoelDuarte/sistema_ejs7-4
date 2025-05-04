@@ -1,0 +1,3 @@
+ALTER TABLE pos_items
+ADD COLUMN document VARCHAR(255),
+ADD COLUMN desconto DECIMAL(10,2);

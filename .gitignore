@@ -1,0 +1,44 @@
+# === LOGS e CACHE ===
+application/logs/*
+!application/logs/index.html
+
+application/cache/*
+!application/cache/index.html
+
+# === UPLOADS (dependendo do uso, pode manter em prod, mas ignorar no Git) ===
+uploads/*
+!uploads/index.html
+
+# === SESSÕES salvas em arquivos (se configurado assim) ===
+application/sessions/*
+!application/sessions/index.html
+
+# === CONFIGURAÇÕES SENSÍVEIS ===
+# Se você tiver configurações diferentes para cada ambiente, ignore esses:
+application/config/database.php
+application/config/config.php
+application/config/email.php
+
+# === ARQUIVOS TEMPORÁRIOS E BACKUP ===
+*.bak
+*.tmp
+*.swp
+*.swo
+*.log
+.DS_Store
+Thumbs.db
+
+# === AMBIENTES DE DESENVOLVIMENTO ===
+index.php
+.env.*
+.vscode/
+.idea/
+
+# === COMPOSER (se estiver usando) ===
+vendor/
+composer.lock
+
+# === GIT e OUTROS ===
+.git/
+*.zip
+*.tar.gz

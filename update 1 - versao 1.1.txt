@@ -1,0 +1,6 @@
+CREATE TABLE pos_customer_category_link (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    category_name VARCHAR(255),
+    person_id INT(10), -- Ajuste conforme necessário
+    FOREIGN KEY (person_id) REFERENCES pos_customers(person_id)
+);
