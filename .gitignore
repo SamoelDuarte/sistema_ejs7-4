@@ -18,6 +18,7 @@ application/sessions/*
 application/config/database.php
 application/config/config.php
 application/config/email.php
+/index.php
 
 # === ARQUIVOS TEMPORÁRIOS E BACKUP ===
 *.bak
