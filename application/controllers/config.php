@@ -11,7 +11,7 @@ class Config extends Secure_area
 
 	public function index()
 	{
-	
+
 
 		$issession = $this->device_model->getSession();
 
@@ -34,7 +34,7 @@ class Config extends Secure_area
 				"session" => $session,
 				"device" => $id
 			);
-		} else{
+		} else {
 			$send = array(
 				"qrcodeImgSrc" => '',
 				"session" => '',
@@ -117,7 +117,12 @@ class Config extends Secure_area
 			'return_policy' => $this->input->post('return_policy'),
 			'language' => $this->input->post('language'),
 			'timezone' => $this->input->post('timezone'),
-			'print_after_sale' => $this->input->post('print_after_sale')
+			'print_after_sale' => $this->input->post('print_after_sale'),
+
+			// Novos campos
+			'taxa_pix_qrcode' => $this->input->post('taxa_pix_qrcode'),
+			'taxa_credito' => $this->input->post('taxa_credito'),
+			'taxa_debito' => $this->input->post('taxa_debito')
 		);
 
 		if ($this->Appconfig->batch_save($batch_save_data)) {

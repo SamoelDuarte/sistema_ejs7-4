@@ -433,9 +433,9 @@ class Sales extends Secure_area
 		$data['payments'] = $this->sale_lib->get_payments();
 		$data['payment_options'] = array(
 			$this->lang->line('sales_cash') => $this->lang->line('sales_cash'),
-			$this->lang->line('sales_promiss') => $this->lang->line('sales_promiss'),
+			// $this->lang->line('sales_promiss') => $this->lang->line('sales_promiss'),
 			$this->lang->line('sales_check') => $this->lang->line('sales_check'),
-			$this->lang->line('sales_giftcard') => $this->lang->line('sales_giftcard'),
+			// $this->lang->line('sales_giftcard') => $this->lang->line('sales_giftcard'),
 			$this->lang->line('sales_debit') => $this->lang->line('sales_debit'),
 			$this->lang->line('sales_credit') => $this->lang->line('sales_credit')
 		);

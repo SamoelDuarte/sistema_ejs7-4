@@ -92,10 +92,29 @@ if ($export_excel == 1) {
 	</table>
 </div>
 <div id="report_summary">
-	<?php foreach ($summary_data as $name => $value) { ?>
-		<div class="summary_row"><?php echo $this->lang->line('reports_' . $name) . ': ' . to_currency($value); ?></div>
+	<?php if (isset($summary_data['subtotal'])) { ?>
+		<div class="summary_row"><?php echo $this->lang->line('reports_subtotal') . ': ' . to_currency($summary_data['subtotal']); ?></div>
+	<?php } ?>
+
+	<?php if (isset($summary_data['total'])) { ?>
+		<div class="summary_row"><?php echo $this->lang->line('reports_total') . ': ' . to_currency($summary_data['total']); ?></div>
+	<?php } ?>
+
+	<?php if (isset($summary_data['tax'])) { ?>
+		<div class="summary_row"><?php echo $this->lang->line('reports_tax') . ': ' . to_currency($summary_data['tax']); ?></div>
+	<?php } ?>
+
+	<?php if (isset($summary_data['total_taxas'])) { ?>
+		<div class="summary_row">Total em Taxas: <?php echo to_currency($summary_data['total_taxas']); ?></div>
+	<?php } ?>
+
+	<?php if (isset($summary_data['profit'])) { ?>
+		<div class="summary_row"><?php echo $this->lang->line('reports_profit') . ': ' . to_currency($summary_data['profit']); ?></div>
 	<?php } ?>
 </div>
+
+
+
 <?php
 if ($export_excel == 1) {
 	$this->load->view("partial/footer_excel");

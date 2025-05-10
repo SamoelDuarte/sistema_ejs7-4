@@ -42,11 +42,20 @@ class Reports extends Secure_area
 		$this->load->model('reports/Summary_sales');
 		$model = $this->Summary_sales;
 		$tabular_data = array();
+		
 		$report_data = $model->getData(array('start_date' => $start_date, 'end_date' => $end_date, 'sale_type' => $sale_type));
 
 		foreach ($report_data as $row) {
-			$tabular_data[] = array($row['sale_date'], to_currency($row['subtotal']), to_currency($row['total']), to_currency($row['tax']), to_currency($row['profit']));
+			$tabular_data[] = array(
+				$row['sale_date'],
+				to_currency($row['subtotal']),
+				to_currency($row['total']),
+				to_currency($row['taxa_calc']), // novo campo de taxa
+				to_currency($row['tax']),
+				to_currency($row['profit'])
+			);
 		}
+		
 
 		$data = array(
 			"title" => $this->lang->line('reports_sales_summary_report'),

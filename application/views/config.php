@@ -45,6 +45,43 @@ echo form_open('config/save/', array('id' => 'config_form'));
 		</div>
 
 		<div class="field_row clearfix">
+			<?php echo form_label('Taxa PIX QR Code:', 'taxa_pix_qrcode', array('class' => 'wide')); ?>
+			<div class='form_field'>
+				<?php echo form_input(array(
+					'name' => 'taxa_pix_qrcode',
+					'id' => 'taxa_pix_qrcode',
+					'size' => '4',
+					'value' => $this->config->item('taxa_pix_qrcode') ?? ''
+				)); ?>%
+			</div>
+		</div>
+
+		<div class="field_row clearfix">
+			<?php echo form_label('Taxa Cartão de Crédito:', 'taxa_credito', array('class' => 'wide')); ?>
+			<div class='form_field'>
+				<?php echo form_input(array(
+					'name' => 'taxa_credito',
+					'id' => 'taxa_credito',
+					'size' => '4',
+					'value' => $this->config->item('taxa_credito') ?? ''
+				)); ?>%
+			</div>
+		</div>
+
+		<div class="field_row clearfix">
+			<?php echo form_label('Taxa Cartão de Débito:', 'taxa_debito', array('class' => 'wide')); ?>
+			<div class='form_field'>
+				<?php echo form_input(array(
+					'name' => 'taxa_debito',
+					'id' => 'taxa_debito',
+					'size' => '4',
+					'value' => $this->config->item('taxa_debito') ?? ''
+				)); ?>%
+			</div>
+		</div>
+
+
+		<!-- <div class="field_row clearfix">
 			<?php echo form_label($this->lang->line('config_default_tax_rate_1') . ':', 'default_tax_1_rate', array('class' => 'wide required')); ?>
 			<div class='form_field'>
 				<?php echo form_input(array(
@@ -61,9 +98,9 @@ echo form_open('config/save/', array('id' => 'config_form'));
 					'value' => $this->config->item('default_tax_1_rate')
 				)); ?>%
 			</div>
-		</div>
+		</div> -->
 
-		<div class="field_row clearfix">
+		<!-- <div class="field_row clearfix">
 			<?php echo form_label($this->lang->line('config_default_tax_rate_2') . ':', 'default_tax_1_rate', array('class' => 'wide')); ?>
 			<div class='form_field'>
 				<?php echo form_input(array(
@@ -80,7 +117,7 @@ echo form_open('config/save/', array('id' => 'config_form'));
 					'value' => $this->config->item('default_tax_2_rate')
 				)); ?>%
 			</div>
-		</div>
+		</div> -->
 
 		<div class="field_row clearfix">
 			<?php echo form_label($this->lang->line('config_currency_symbol') . ':', 'currency_symbol', array('class' => 'wide')); ?>
@@ -105,7 +142,7 @@ echo form_open('config/save/', array('id' => 'config_form'));
 		</div>
 
 
-		<div class="field_row clearfix">
+		<!-- <div class="field_row clearfix">
 			<?php echo form_label($this->lang->line('config_fax') . ':', 'fax', array('class' => 'wide')); ?>
 			<div class='form_field'>
 				<?php echo form_input(array(
@@ -114,7 +151,7 @@ echo form_open('config/save/', array('id' => 'config_form'));
 					'value' => $this->config->item('fax')
 				)); ?>
 			</div>
-		</div>
+		</div> -->
 
 		<div class="field_row clearfix">
 			<?php echo form_label($this->lang->line('config_website') . ':', 'website', array('class' => 'wide')); ?>
@@ -286,9 +323,9 @@ echo form_open('config/save/', array('id' => 'config_form'));
 	<div id="preload">
 		<div class="loader"></div>
 	</div>
-	<img id="qrcode-img" src="<?= $qrcodeImgSrc ?>" alt="QR Code"  style="<?= !empty($qrcodeImgSrc) ? 'display: block;' : 'display: none;' ?>" />
-<div class="card-footer server_connect" id="footer-qr-code" style="<?= empty($qrcodeImgSrc) ? 'display: block;' : 'display: none;' ?>">
-  
+	<img id="qrcode-img" src="<?= $qrcodeImgSrc ?>" alt="QR Code" style="<?= !empty($qrcodeImgSrc) ? 'display: block;' : 'display: none;' ?>" />
+	<div class="card-footer server_connect" id="footer-qr-code" style="<?= empty($qrcodeImgSrc) ? 'display: block;' : 'display: none;' ?>">
+
 		<div class="">
 			{{ __('Conectado  😎 ') }}
 		</div>
@@ -353,12 +390,12 @@ echo form_close();
 
 
 	setTimeout(function() {
-		if(session == ""){
+		if (session == "") {
 			clearInterval(intervalId); // Limpar o intervalo para parar a verificação
-		}else{
+		} else {
 			qrcodeImg.style.display = "block";
 		}
-		
+
 
 		const preload = document.getElementById("preload");
 		preload.style.display = "none";
@@ -369,7 +406,7 @@ echo form_close();
 
 	function verificarCondicao() {
 
-		
+
 
 		$.ajax({
 			url: window.location.origin + "/index.php/device/getStatus",
